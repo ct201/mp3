@@ -3,10 +3,10 @@ Functions that calculate two types of interest.
 """
 
 def simple_interest(principal: float,rate: float,time:float) -> float:
-    return  # return stuff here
+    return # return stuff here
 
 def compound_interest(principal: float, rate: float, n: int, time: float) -> float:
-    return principal*(1+(rate/100)/n)**(n*t) # return stuff here
+    return # return stuff here
 
 # Example values
 p,r,t = 100,6,2
