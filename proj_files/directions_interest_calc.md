@@ -6,3 +6,6 @@ Simple interest is calculated as $I = P \times \frac{R}{100} \times T$ where $P$
 
 ## Compound Interest
 Compound interest is when interest is earned on previously earned interest. It's formula is given by $A = P(1 + \frac{\frac{r}{100}}{n})^{nt}$ where $A$ is the final amount, $P$ is the intial principal, $r$ is the interest rate, $n$ is the number of times compounded during a single time period, and $t$ is the number of time periods.
+
+## Bonus
+*Bonus to appear later...*
