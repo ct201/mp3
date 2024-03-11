@@ -1,0 +1,83 @@
+import os
+from datetime import datetime
+
+ENTRY_DIRECTORY = "entries"
+
+def create_entry():
+    entry_content = input("New Entry! ")
+    entry_filename = input("Entry Name! ")
+
+    if not entry_filename:
+        current_datetime = datetime.now()
+        entry_filename = current_datetime.strftime('%Y%m%d_%H%M%S')
+
+    entry_path = os.path.join(ENTRY_DIRECTORY, f"{entry_filename}.txt")
+
+    with open(entry_path, 'w') as entry_file:
+        current_datetime = datetime.now()
+        entry_file.write(f"Date: {current_datetime.strftime('%Y-%m-%d')}\n")
+        entry_file.write(f"Time: {current_datetime.strftime('%H:%M:%S')}\n")
+        entry_file.write(f"Content:\n{entry_content}")
+
+    print(f"Entry made and saved :3 : {entry_path}")
+
+def list_entries():
+    entries = os.listdir(ENTRY_DIRECTORY)
+    if not entries:
+        print("Didn't find anything :(")
+    else:
+        print("Stuff you can read:")
+        for entry in entries:
+            print(entry)
+
+def read_entry():
+    list_entries()
+    entry_filename = input("Enter the name of the entry you'd like to see! ")
+    entry_path = os.path.join(ENTRY_DIRECTORY, entry_filename)
+
+    try:
+        with open(entry_path, 'r') as entry_file:
+            content = entry_file.read()
+            print(f"\nContent of {entry_filename}:\n{content}")
+    except FileNotFoundError:
+        print(f"No entries found :(: {entry_filename}")
+
+def delete_entry():
+    list_entries()
+    entry_filename = input("Enter the name of the entry you want BURNED ")
+    entry_path = os.path.join(ENTRY_DIRECTORY, entry_filename)
+
+    try:
+        os.remove(entry_path)
+        print(f"Entry has been lit on fire: {entry_filename}")
+    except FileNotFoundError:
+        print(f"no available fire :(: {entry_filename}")
+
+if __name__ == "__main__":
+    if not os.path.exists(ENTRY_DIRECTORY):
+        os.makedirs(ENTRY_DIRECTORY)
+
+    while True:
+        print("\nMenu:")
+        print("(C)reate Entry")
+        print("(L)ist Entries")
+        print("(R)ead Entry")
+        print("(D)elete Entry")
+        print("(E)xit")
+
+        choice = input("What do you want to happen??? Choose your adventure!! ")
+
+        if choice == "C":
+            create_entry()
+        elif choice == "L":
+            list_entries()
+        elif choice == "R":
+            read_entry()
+        elif choice == "D":
+            delete_entry()
+        elif choice == "E":
+            print("Bye Bye!")
+            break
+        else:
+            print("What are you doing here??? Enter a valid option bro.")
+        
