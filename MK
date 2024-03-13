@@ -1,0 +1,38 @@
+"""
+Functions that calculate two types of interest.
+"""
+prompts="What interest would you like to calculate?"
+
+answer= input(prompts).lower()
+    
+def simple_interest(principal: float,rate: float,time:float) -> float:
+    if p <0:
+        print("wrong input")
+    if r <0:
+        print("wrong input") 
+    if t <0:
+        print("wrong input")
+    return(p*r/100*t)
+
+def compound_interest(principal: float, rate: float, n: int, time: float) -> float:
+    if p <0:
+        print("wrong input")
+    if r <0:
+        print("wrong input") 
+    if n <0:
+        print("wrong input")
+    if t <0:
+        print("wrong input")
+    return (p*(1+(r/100/n))**(n*t))
+
+if answer=="simple":
+    p,r,t = 100,6,2
+    print("Calculate simple interest with the following values:")
+    print(f"P: {p}, r: {r}, t: {t}")
+    print(simple_interest(p,r,t))
+
+if answer=="compound": 
+    p,r,t,n = 100,6,2,12
+    print("Calculate compound interest with the following values:")
+    print(f"P: {p}, r: {r}, t: {t}, n: {n}")
+    print(compound_interest(p,r,n,t))
